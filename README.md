@@ -1,4 +1,4 @@
-# ̀ devjournal`
+# `devjournal`
 
 *devjournal* is a online plateform for the independent developper. It is mainly
 a developpment log, but with some spice.
