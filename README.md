@@ -40,6 +40,37 @@ and the projects behind.
 
 So here's my attempt.
 
+## Great, how do I use it?
+
+Well, `devjournal` makes several assumptions about your workflow:
+
+1. You should use git, with github. This project won't focus on using other
+   VCS. However, in a second time, once this project is feature complete,
+   support for other hosting solutions could be added.
+2. In git, you use a development model where `master` is your release branch.
+   All commits on this branch should be consistent. Someone who reads the log on
+   the `master` branch should have a clear and concise view of what has been
+   going on the project.
+
+### How do we keep track of time?
+
+Via a `.devjournal.yml` file, on the root of the repository.
+
+Its syntax is as follows:
+
+    timespent:
+      - contact+trash@paulollivier.fr:
+        - 15/02/2015: 2  # In hours
+        - 14/02/2015: 1
+      - otherdev@example.com:
+        - 15/02/2015: 3
+
+Sorry, american friends, all dates are in standard format, that is
+"day/month/year".
+
+This file may be commited in the repository, and should be updated with each
+coding session.
+
 ## Keypoints
 
 * Python
