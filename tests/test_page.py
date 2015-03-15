@@ -42,3 +42,12 @@ class TestPage(TestCase):
         p.md = ''
         p.name = 'test'
         self.assertRaises(IntegrityError, p.save)
+
+    def test_modify(self):
+        r = self.app.post('/test/edit', data={'page_name': 'test2',
+                                              'page_content': '# test_modified'},
+                          headers={'Content-Type': 'application/json; charset=utf-8'})
+        self.assertEqual(r.status_code, 200)
+        p = devjournal.models.Page.query.findall(name='test2').first()
+        self.assertEqual(p.id, self.p.id)
+        self.assertEqual(p.md, '# test_modified')

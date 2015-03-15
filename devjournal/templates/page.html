@@ -1,8 +1,8 @@
-<html>
-    <head>
-        <title>{{page.name}}</title>
-    </head>
-    <body>
-        {{ page.html | safe }}
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block head %}
+<link href="{{ url_for('static', filename='page.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+{{ page.html|safe }}
+{% endblock %}

@@ -1,0 +1,32 @@
+#content {
+    width: 1024px;
+    height: 100%;
+}
+#content > * {
+    width: 100%;
+}
+
+#content #tags {
+    border: none;
+    border-bottom: solid black 1px;
+    width: inherit;
+}
+
+#content #name {
+    border: none;
+    border-bottom: solid black 1px;
+    font-size: 2em;
+    width: inherit;
+}
+
+#content > #editor {
+    height:75%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#content > #send_button {
+    border: solid black 1px;
+    border-radius: 3px;
+    background-color: white;
+}

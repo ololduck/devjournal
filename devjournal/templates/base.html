@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>{% block title %}{{ page.name }}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}" />
+        {%  block head %}{% endblock %}
+    </head>
+    <body>
+        <div id="content">
+            <div id="notifications"></div>
+            {% block content %}{%  endblock %}
+        </div>
+        <script type="text/javascript">{% block script %}{% endblock %}</script>
+    </body>
+</html>

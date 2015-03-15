@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Create a new page{% endblock %}
+{% block content %}
+<p>Create a new page</p>
+<form action="create" method="post">
+    <input type="text" name="page_name" placeholder="Pages's name" value="{{ page_name }}"/><br />
+    <input type="radio" name="page_type" value="project" /> Project<br />
+    <input type="radio" name="page_type" value="plain" /> Simple<br />
+    <input type="radio" name="page_type" value="event" /> Event<br/>
+    <input type="submit" value="Create">
+</form>
+{% endblock %}

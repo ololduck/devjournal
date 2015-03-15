@@ -1,13 +1,13 @@
 # `devjournal`
 
-*devjournal* is a online plateform for the independent developper. It is mainly
-a developpment log, but with some spice.
+*devjournal* is a online platform for the independent developer. It is mainly
+a development log, but with some spice.
 
 ## Features
 
 A list of (intended) features is worth a thousand words:
 
-* A wiki for each project, with its own automatic subpages, such as:
+* A wiki for each project, with its own automatic sub-pages, such as:
 
     * Statistics: how much time has been spent on this project, on what
       (development, design...), which month has been more productive, and so on
@@ -26,12 +26,12 @@ maintain the written software.
 
 The key concepts were **openness**, **transparency**, **feedback**, **documentation**
 
-* **Openness**: I wanted to be able to show things, without beeing ashamed of
+* **Openness**: I wanted to be able to show things, without being ashamed of
   it.
 * **Transparency**: Most of the things public. The code, the documentation, the
   time spent, all that is public.
 * **feedback**: I wanted to have metrics,  information about how my time was
-  spent. That motivates me immensly.
+  spent. That motivates me immensely.
 * **Documentation**: I want it to be a place of documentation, a bit like
   pocoo.org is where every documentation created by the pocoo team.
 
