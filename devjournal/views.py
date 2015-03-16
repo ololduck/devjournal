@@ -37,8 +37,8 @@ def edit(page_name):
         if 'page_content' in request.json:
             page.md = request.json.get('page_content')
         if 'page_categories' in request.json:
-            page.categories = [cat_create_if_not_exist(cat_name)
-                               for cat_name.strip() in request.json.get(
+            page.categories = [cat_create_if_not_exist(cat_name.strip())
+                               for cat_name in request.json.get(
                 'page_categories').split(',')]
         page.save()
         if page.name != page_name:
