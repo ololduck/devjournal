@@ -7,6 +7,6 @@
 {{ page.html|safe }}
     <hr />
     {% if page.categories %}
-    <p><span id="categories" >Located under {{ page.categories|join(', ', attribute='name') }}</span>, <span id="modif_date">last modified the {{ page.last_modified }}.</span></p>
+    <p><span id="categories" >Located under {%  for cat in page.categories %}<a href="/search?q=tag:{{ cat.name }}">{{ cat.name }}</a>{% endfor %}</span>, <span id="modif_date">last modified the {{ page.last_modified }}.</span></p>
     {% endif %}
 {% endblock %}

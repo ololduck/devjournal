@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 from flask import render_template, abort, redirect, request, jsonify
 from . import app, db
-from .models import Page, ProjectPage, EventPage
+from .models import Page, ProjectPage, EventPage, Category
 from .utils import get_page_and_type, cat_create_if_not_exist, render_page
 
 
@@ -10,6 +10,18 @@ from .utils import get_page_and_type, cat_create_if_not_exist, render_page
 def index():
     return '<h1>Nothing to see here</h1><p>(For now)</p>'
 
+
+@app.route('/search')
+def search():  # TODO: implement multi-parameters search like "tag:todo and tag:project or name:Hiver"
+    if 'q' in request.args:
+        query = request.args.get('q')
+        t, arg = query.split(':', 2)
+        results = []
+        if t == 'tag':
+            tag = Category.query.filter_by(name=arg).first()
+            if tag is not None:
+                results += Page.query.filter(Page.categories.any(name=tag.name)).all()
+        return render_template("search.html", results=results)
 
 @app.route('/<string:page_name>')
 def view(page_name):
