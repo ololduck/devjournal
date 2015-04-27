@@ -1,11 +1,19 @@
-#body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #dddddd;
+@font-face {
+    font-family: Fira Sans;
+    src: url(/static/FiraSans-Regular.otf);
+    font-weight:400;
+}
+body {
+    font-family: "Fira Sans";
 }
 #content {
     width: 75%;
-    margin:auto;
+    margin: auto;
 }
 #content > img {
     width: 100%;
+}
+
+#content > .search_results {
+    list-style: none;
 }

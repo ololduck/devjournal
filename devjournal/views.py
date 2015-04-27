@@ -21,7 +21,7 @@ def search():  # TODO: implement multi-parameters search like "tag:todo and tag:
             tag = Category.query.filter_by(name=arg).first()
             if tag is not None:
                 results += Page.query.filter(Page.categories.any(name=tag.name)).all()
-        return render_template("search.html", results=results)
+        return render_template("search.html", results=results, query=query)
 
 @app.route('/<string:page_name>')
 def view(page_name):

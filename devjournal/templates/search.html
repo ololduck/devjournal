@@ -1,7 +1,8 @@
 {%  extends "base.html" %}
-{% block title %}Search{% endblock %}
+{% block title %}Search: "{{ query }}"{% endblock %}
 {%  block content %}
-    <ul>
+    <h1>Search results for "{{ query }}"</h1>
+    <ul class="search_results">
     {% for page in results %}
         <li><a href="/{{ page.name }}">{{ page.name }}</a></li>
     {% endfor %}
