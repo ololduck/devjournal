@@ -5,4 +5,8 @@
 {% endblock %}
 {% block content %}
 {{ page.html|safe }}
+    <hr />
+    {% if page.categories %}
+    <p><span id="categories" >Located under {{ page.categories|join(', ', attribute='name') }}</span>, <span id="modif_date">last modified the {{ page.last_modified }}.</span></p>
+    {% endif %}
 {% endblock %}

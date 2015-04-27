@@ -7,6 +7,7 @@
 {% block content %}
     <p><input type="text" id="name" name="page_name" value="{{ page.name }}"/></p>
     <p><input type="text" id="tags" name="tags" placeholder="Categories" value="{{ page.categories | join(', ', attribute='name') }}" /></p>
-    <textarea id="editor" name="page_content" cols="80" rows="10">{{ page.md }}</textarea><br />
+    <p><textarea id="editor" name="page_content">{{ page.md }}</textarea></p>
     <button id="send_button">save</button>
 {% endblock %}
+

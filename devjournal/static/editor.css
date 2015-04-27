@@ -4,6 +4,7 @@
 }
 #content > * {
     width: 100%;
+    clear: left;
 }
 
 #content #tags {
@@ -19,8 +20,9 @@
     width: inherit;
 }
 
-#content > #editor {
+#content #editor {
     height:75%;
+    width: 100%;
     margin-top: 1%;
     margin-bottom: 1%;
 }
@@ -30,3 +32,24 @@
     border-radius: 3px;
     background-color: white;
 }
+
+.tab-container > ul {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    list-style: none;
+}
+.tab-container > ul a {
+    padding: 2px;
+    float: left;
+    display: block;
+    width: 49.4%;
+    text-align: center;
+    border: solid black 1px;
+    text-decoration: none;
+    color: black;
+}
+
+#meta-edit > *      { width: 100%;  }
+#repo_url > input   { width: 74.5%; }
+#project_host       { width: 25%;   }
