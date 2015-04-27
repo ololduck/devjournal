@@ -15,5 +15,5 @@ body {
 }
 
 #content > .search_results {
-    list-style: none;
+    list-style: circle;
 }
