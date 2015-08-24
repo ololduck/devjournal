@@ -11,17 +11,34 @@ def index():
     return '<h1>Nothing to see here</h1><p>(For now)</p>'
 
 
+@app.route('/all')
+def all():
+    return redirect("/search?q=all")
+
+
 @app.route('/search')
 def search():  # TODO: implement multi-parameters search like "tag:todo and tag:project or name:Hiver"
     if 'q' in request.args:
         query = request.args.get('q')
-        t, arg = query.split(':', 2)
         results = []
-        if t == 'tag':
-            tag = Category.query.filter_by(name=arg).first()
-            if tag is not None:
-                results += Page.query.filter(Page.categories.any(name=tag.name)).all()
+        if ':' not in query:
+            if query != "all":
+                return "ERROR: please use ?q=tag:mytag \
+                        or ?q=name:myname"  # TODO: make a real page
+            else:
+                results += Page.query.all()
+        else:
+            t, arg = query.split(':', 2)
+            if t == 'tag':
+                tag = Category.query.filter_by(name=arg).first()
+                if tag is not None:
+                    results += Page.query.filter(Page.categories.any(name=tag.name)).all()
+            if t == 'name':
+                results += Page.query.filter(Page.name.like("%{0}%".format(arg)))
+        if len(results) == 1:
+            return redirect('/{0}'.format(results[0].name))
         return render_template("search.html", results=results, query=query)
+    return render_template("search.html", results=[])
 
 @app.route('/<string:page_name>')
 def view(page_name):
