@@ -1,4 +1,5 @@
 import devjournal
+import json
 from unittest import TestCase
 from sqlalchemy.exc import IntegrityError
 
@@ -44,10 +45,11 @@ class TestPage(TestCase):
         self.assertRaises(IntegrityError, p.save)
 
     def test_modify(self):
-        r = self.app.post('/test/edit', data={'page_name': 'test2',
-                                              'page_content': '# test_modified'},
-                          headers={'Content-Type': 'application/json; charset=utf-8'})
+        data = {'page_name': 'test2', 'page_content': '# test_modified'}
+        r = self.app.post('/test/edit', data=json.dumps(data),
+                          headers={'Content-Type': 'application/json; charset=utf-8',
+                                   'Content-Length': len(json.dumps(data))})
         self.assertEqual(r.status_code, 200)
-        p = devjournal.models.Page.query.findall(name='test2').first()
+        p = devjournal.models.Page.query.filter_by(name='test2').first()
         self.assertEqual(p.id, self.p.id)
         self.assertEqual(p.md, '# test_modified')
